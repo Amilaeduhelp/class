@@ -59,6 +59,10 @@
             margin-bottom: 25px;
         }
         
+        .hidden {
+            display: none;
+        }
+        
         label {
             display: block;
             margin-bottom: 8px;
@@ -295,9 +299,9 @@
                 <input type="number" id="year" name="year" class="input-field" min="2020" max="2030" placeholder="විභාගයට පෙනී සිටින වර්ෂය ඇතුළත් කරන්න" required>
             </div>
             
-            <div class="form-group">
+            <div class="form-group" id="subjectGroup">
                 <label for="subject">තේරීම උසස් පෙළ පන්තියක් නම්, ලංකා ඉතිහාසය සමග හදාරන අනෙක් කොටස දක්වන්න:</label>
-                <select id="subject" name="subject" class="input-field" required>
+                <select id="subject" name="subject" class="input-field">
                     <option value="" disabled selected>තෝරන්න</option>
                     <option value="India">India</option>
                     <option value="Europe">Europe</option>
@@ -311,9 +315,6 @@
                     <option value="Physical">Physical Group class</option>
                     <option value="Online">Online Class</option>
                     <option value="Individual">Individual(කළුතර අවට)</option>
-                    <option value="Online සිතියම් පාඨමාලාව">Online සිතියම් පාඨමාලාව</option>
-                    <option value="Online MCQ පාඨමාලාව">Online MCQ පාඨමාලාව</option>
-                    <option value="පන්ති එපා. සටහන්පොත් පමණක් ලබදෙන්න.">පන්ති එපා. සටහනපොත් පමණක් ලබදෙන්න.</option>
                 </select>
             </div>
             
@@ -375,7 +376,6 @@
             <span class="close-modal" id="closeTeacherInfo">&times;</span>
             <h2 class="modal-title">ගුරුවරයා ගැන</h2>
             <div class="modal-text">
-                <p>ඉතිහාසය විෂයය සම්බන්ධයෙන් ශ්‍රී ජයවර්ධනපුර විශ්වවිද්‍යලයෙන් විශේෂ උපාධියක් ලබා තිබේ..</p>
                 <p>රජයේ පාසල් ගුරුවරයෙකු වශයෙන් කලක් (බාරොන් ජයතිලක විද්‍යාලය-කොළඹ, මාකලන්දාව විදුහල හා වළල්ලාවිට මහා විද්‍යාලය-වළල්ලාවිට, නාගොඩ මහා විද්‍යාලය-නාගොඩ, පානදුර බාලිකා මහා විද්‍යාලය-පානදුර) සේවය කළ අතර දැනට මාර්ගගත ඉගැන්වීම් කටයුතු සඳහා කාලය යොදවා තිබේ.</p>
                 <p>ලංකාවේ අධ්‍යාපන කලාප ගණනාවක ම ගුරු පුහුණු වැඩසටහන් හා විභාග ඉලක්ක කර සිදු දරු දැරියන් සඳහා පවත්වන වැඩසටහන් වල සම්පත් දායකයෙකි.</p>
                 <p>සම්මාන දිනූ ලේඛකයෙකි(වෑ කම් පෙළහර...).</p>
@@ -393,43 +393,80 @@
             <span class="close-modal" id="closeClassFee">&times;</span>
             <h2 class="modal-title">පන්ති ගාස්තු</h2>
             <div class="modal-text">
-                <p>ආයතනයක පැවත්වෙන Physicl class සඳහා මාසිකව.2500/-කි.</p>
-                <p>Individual class සඳහා පැයක අයකිරීම 1500/-කි.</p>
-                <p>Online Group class සඳහා මාසික අයකිරීම 15000/-කි.(උපරිම දරුවන් පස්ද‍ෙනෙකු පමණි.)</p>
-                <p>Online Individual class සඳහා පැයක අයකිරීම 1000/-කි.</p>
-                <p>Online සිතියම් ලකුණුකිමේ පාඨමාලාව සඳහා සම්පූර්ණ අයකිරීම 4000/-කි.(පැය 2 බැගින් දින 6කි)</p>
-                <p>Online MCQ පරීක්ෂණය සඳහා සම්පූර්ණ අයකිරීම 12000/-කි.(2000x6)(මාසිකව ප්‍රශ්නපත්‍ර 2ක් බැගින් වර්ෂ 2ක්/ පිළිතුරු විග්‍රහ හා සාකච්ඡා ඇතුළත්ව)</p>
-           </div>
+                <p>අපගේ පන්තිය සම්පූර්ණ විෂය නිර්දේශය නියමිත කාලයට වඩා මාස 6කට පෙර ආවරණය කරන අයුරින් සකසා තිබේ.</p>
+                <p>මුද්‍රිත නිබන්ධන, සිතියම්, ප්‍රශ්නපත්‍ර ආදිය සැපයේ.</p>
+                <p>පුණරීක්ෂණ පන්තිය මාස 6ක් පුරා පැවත්වේ.</p>
+                <p>පාසල් කාලය තුළ උදේවරු පන්ති නොපැවත්වේ.</p>
+                <p><strong>විෂයනිර්දේශයට අමතරව</strong></p>
+                <p>අංගසම්පූර්ණව සකස් කළ සිතියම් ලකුණුකිරීමේ පාඨමාලාවක් යටතේ සිතියම් 80ක් හෝ අවශ්‍යතාව අනුව ඊට වැඩි ප්‍රාණයක් ලකුණු කර හුරුකරවනු ලැබේ. එහි ඉලක්කය සිතියම් ලකුණුකිරීමට අදාළ ලකුණු 12ම ලබාගැනීම යි.</p>
+                <p>රචනාමය ප්‍රශ්න 40 බැගින් 80ක් පන්ති කාලසීමාව තුළ පන්තියේ දී හා නිවසේ දී දිනකට එක බැගින් ලියවනු ලබයි.</p>
+                <p>MCQ දහස බැගින් දෙදහසක් සඳහා පිළිතුරු ලියවනු ලැබේ.</p>
+                <p>අපගේ අවසන් අරමුණ උසස් පෙළ ඉතිහාසය විෂයය සඳහා A සාමර්ථ්‍යයක් ලබා ගැනීම යි.</p>
+            </div>
         </div>
     </div>
 
     <script>
+        // Function to handle exam type change
+        document.getElementById('examType').addEventListener('change', function() {
+            const examType = this.value;
+            const subjectGroup = document.getElementById('subjectGroup');
+            const subjectField = document.getElementById('subject');
+            
+            if (examType === 'සාමාන්‍ය පෙළ') {
+                // Hide and disable subject field for O/L
+                subjectGroup.classList.add('hidden');
+                subjectField.disabled = true;
+                subjectField.required = false;
+                // Set a default value to ensure form submission works
+                subjectField.value = 'N/A';
+            } else {
+                // Show and enable subject field for A/L
+                subjectGroup.classList.remove('hidden');
+                subjectField.disabled = false;
+                subjectField.required = true;
+                subjectField.value = '';
+            }
+        });
+        
         // WhatsApp button functionality
         document.getElementById('whatsappBtn').addEventListener('click', function() {
             const name = document.getElementById('name').value;
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
             const year = document.getElementById('year').value;
-            const subject = document.getElementById('subject').value;
             const whatsapp = document.getElementById('whatsapp').value;
             const classType = document.getElementById('classType').value;
             const examType = document.getElementById('examType').value;
             
+            let subject = document.getElementById('subject').value;
+            
             // Validate form
-            if (!name || !address || !phone || !year || !subject || !whatsapp || !classType || !examType) {
+            if (!name || !address || !phone || !year || !whatsapp || !classType || !examType) {
+                alert('කරුණාකර සියලුම තොරතුරු ඇතුළත් කරන්න');
+                return;
+            }
+            
+            // For O/L, don't validate subject field
+            if (examType === 'උසස් පෙළ' && !subject) {
                 alert('කරුණාකර සියලුම තොරතුරු ඇතුළත් කරන්න');
                 return;
             }
             
             // Prepare WhatsApp message
-            const message = `නම: ${name}%0A` +
+            let message = `නම: ${name}%0A` +
                         `ලිපිනය: ${address}%0A` +
                         `දුරකතන අංකය: ${phone}%0A` +
                         `WhatsApp අංකය: ${whatsapp}%0A` +
                         `විභාගය: ${examType}%0A` +
-                        `විභාගයට පෙනී සිටින වර්ෂය: ${year}%0A` +
-                        `හදාරන අනෙක් කොටස: ${subject}%0A` +
-                        `සහභාගී වන්නට අපේක්ෂා කරන පන්තිය: ${classType}`;
+                        `විභාගයට පෙනී සිටින වර්ෂය: ${year}%0A`;
+            
+            // Only add subject for A/L
+            if (examType === 'උසස් පෙළ') {
+                message += `හදාරන අනෙක් කොටස: ${subject}%0A`;
+            }
+            
+            message += `සහභාගී වන්නට අපේක්ෂා කරන පන්තිය: ${classType}`;
             
             // Open WhatsApp with predefined message
             window.open(`https://wa.me/94701551279?text=${message}`, '_blank');
@@ -441,25 +478,39 @@
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
             const year = document.getElementById('year').value;
-            const subject = document.getElementById('subject').value;
             const whatsapp = document.getElementById('whatsapp').value;
             const classType = document.getElementById('classType').value;
             const examType = document.getElementById('examType').value;
             
+            let subject = document.getElementById('subject').value;
+            
             // Validate form
-            if (!name || !address || !phone || !year || !subject || !whatsapp || !classType || !examType) {
+            if (!name || !address || !phone || !year || !whatsapp || !classType || !examType) {
+                alert('කරුණාකර සියලුම තොරතුරු ඇතුළත් කරන්න');
+                return;
+            }
+            
+            // For O/L, don't validate subject field
+            if (examType === 'උසස් පෙළ' && !subject) {
                 alert('කරුණාකර සියලුම තොරතුරු ඇතුළත් කරන්න');
                 return;
             }
             
             // Prepare text to copy
-            const textToCopy = `නම: ${name}
+            let textToCopy = `නම: ${name}
 ලිපිනය: ${address}
 දුරකතන අංකය: ${phone}
 WhatsApp අංකය: ${whatsapp}
 විභාගය: ${examType}
-විභාගයට පෙනී සිටින වර්ෂය: ${year}
-හදාරන අනෙක් කොටස: ${subject}
+විභාගයට පෙනී සිටින වර්ෂය: ${year}`;
+            
+            // Only add subject for A/L
+            if (examType === 'උසස් පෙළ') {
+                textToCopy += `
+හදාරන අනෙක් කොටස: ${subject}`;
+            }
+            
+            textToCopy += `
 සහභාගී වන්නට අපේක්ෂා කරන පන්තිය: ${classType}`;
             
             // Copy to clipboard
@@ -528,7 +579,7 @@ WhatsApp අංකය: ${whatsapp}
             }
         }
         
-        // Add focus animation for input fields
+        //Add focus animation for input fields
         const inputs = document.querySelectorAll('.input-field');
         inputs.forEach(input => {
             input.addEventListener('focus', function() {
